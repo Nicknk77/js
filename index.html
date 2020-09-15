@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--    <link rel="stylesheet" href="styles/css/style.css">-->
+    <title>JS 1-st task</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            font-size: 16px;
+        }
+        .wrapper {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(1, 0.5fr);
+            grid-template-rows: 300px;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            background-color: #fff;
+        }
+        div {
+            background-color: #2d196d;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div>
+        <script>
+            // Task number 1
+            let celsiy = 20;
+            let faringeit = (9 / 5) * celsiy + 32;
+            function temperature() {
+                alert(faringeit + " градусов по Фаренгейту");
+            }
+            setTimeout (temperature, 1000);
+            // Task number 2
+            let name = "Василий";
+            let admin = name;
+            document.write("Задание номер 2<br>");
+            document.write("Значение переменной 'admin' -" + admin + "<br><br>");
+            // Task number 3
+            let addition = 100 + "108";
+            document.write("Задание номер 3<br>");
+            document.write('100 + "108" = ' + addition + "<br><br>");
+            // Task number 4
+            document.write("Задание номер 4<br>");
+            document.write("По атрибутам async и defer - для очерёдности и ожиданий запуска внешних скриптов ");
+        </script>
+    </div>
+</div>
+</body>
+</html>
