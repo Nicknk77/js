@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home work for unit #4</title>
+</head>
+<body>
+    <div class="task0">
+        <h2>to get array from picture launch task0()</h2>
+        <script>
+
+            let NAMES = ["Mango people T-shirt", "Banana people T-shirt", "Strawberry people T-shirt", "Orange people T-shirt"];
+            let PRICE =["52$", "53$", "55$", "67$"];
+            
+            function createNewObject(name, price) {
+                return {
+                    name,
+                    price
+                }
+            }
+
+            function getList() {
+                return NAMES.map((name, index) => createNewObject(NAMES[index], PRICE[index]));
+            }
+
+            function task0(name, price) {
+                let res = [];
+                res = getList();
+                for (let i=0; i < res.length; i++) {
+                    console.log (`${res[i].name} costs ${res[i].price}`);
+                }
+            }
+
+        </script>
+    </div>
+    <hr>
+
+    <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+
+    <div class="myValue">
+        <h2>to get Object from value launch task1()</h2>
+        <script>
+
+            function task1() {
+                console.log(getObject());
+            }
+
+            function reverse(str) {
+                let result = "";
+                for (let i = str.length - 1; i >= 0; i--) {
+                    result += str[i];
+                }
+                return result;
+            }
+
+            function getObject() {
+                let val = reverse(prompt("Enter your favorite value from 0 to 999 !"));
+                let res = {};
+                if (val.length > 3) {
+                    console.log (`Your value more than 999 ! Be carefull. ${val}`);
+                    return {};
+                }
+                for (let i = 0; i < val.length; i++) {
+                        switch(i) {
+                            case 0: {
+                                res["единицы"] = val[i];
+                                break;
+                            }
+                            case 1: {
+                                res["десятки"] = val[i];
+                                break;
+                            }
+                            case 2 : {
+                                res["сотни"] = val[i];
+                                break;
+                            }
+                        }
+                    }
+                return res;
+            }
+        </script>
+    </div>
+    <hr>
+
+    <!-- -------------------------------------------Быки и Коровы----------------------------------------------------------------------------------- -->
+
+    <div class="task2">
+        <h2>Bulls and Cows - launch in console task2() <span style="color: red;">AFTER FINISH CHOOSE STEP TO REMEMBER</span></h2>
+        <script>
+            
+            function task2 () {
+                let arr = steps();
+                let step = prompt ("Введите номер хода,который хотите осмотреть") - 1;
+                console.log(`Your step number ${step+1} was - ${arr[step]}`);
+            }
+
+            function steps() {
+                let steps =[];
+                console.log("You have just 10 steps.");
+                let pc = startGame();
+                console.log(`Копьютер загадал число: ${pc}. (Подсказка чтобы Вам было легче проверить)`);
+                let i = 0;
+                while(i < 10) {
+                    let reply = prompt("Назови 4-х значное число");
+                    steps[i] = reply;
+                    if (reply != null) reply = [...reply];
+                    else return steps;
+                    console.log(compare(pc, reply));
+                    if (compare(pc, reply) == "You win!") {
+                        i=10;
+                    }
+                    ++i;
+                }
+                return steps;
+            }
+
+            function startGame() {
+                let numb = "";
+                while (numb.length != 4) {
+                    numb += Math.floor(Math.random()*10);
+                }
+                return [...numb];
+            }
+
+            function compare(pc, human) {
+                let result=[];
+                pc.forEach(function(element, index) {
+                    human.forEach(function(element2, index2) {
+                        if (element == element2 && index == index2) {
+                            result.push(`bull ${element} is ${index+1}`);
+                        }else if (element == element2) {
+                            result.push(`cow ${element} is ${index+1}`);
+                        }
+                    });
+                });
+                let k = 0;
+                result.forEach(item => {
+                    if (item.indexOf("bull", 0) != -1) {
+                        ++k;
+                    }
+                    if (k == 4) {
+                        result = "You win!" 
+                    }
+                });
+                return result;
+            }
+        </script>
+    </div>
+</body>
+</html>
