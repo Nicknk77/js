@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        let kart = "img/kart_white.png";
+        let img = "https://raw.githubusercontent.com/Nicknk77/img/master/GB_img/infeature";
+        let items = ["mango people t-shirt-1", "mango people t-shirt-2", "mango people t-shirt-3", "mango people t-shirt-4", "mango people t-shirt-5", "mango people t-shirt-6", "mango people t-shirt-7", "mango people t-shirt-8"];
+        let price = [52, 54, 55, 62, 51, 57, 50, 42];
+        let stars = ["", " class=\"half-star\"", "", "", "", "", " class=\"empty-star\"", ""];
+        function createFeaturedItem(items) {
+            let str = "";
+            items.forEach(function(element, index) {
+                str += `<div class="hot-offer">
+                <div class="hot-offer__shadow">
+                    <img src="${img}${index+1}.jpg" alt="t-shirt">
+                    <div class="hot-offer__hover">
+                        <div class="hot-offer__square">
+                            <button><img src="${kart}" alt="order">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="single.html">${element}</a>
+                <h3>
+                    $${price[index]}.00
+                    <div class="hot-offer__stars">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div${stars[index]}></div>
+                    </div>
+                </h3>
+                </div>
+                `;
+            });
+            return str;
+        }
+    
+        
+    </script>
+</head>
+<body>
+    <div class="header container">
+        <div class="header__left">
+            <a class="header__logo" href="index.html">
+                <img src="img/logo.png" alt="logo">bran <span>d</span>
+            </a>
+            <form class="header__search">
+                <a href="#" class="header__browse">Browse <i class="fas fa-caret-down"></i></a>
+                    <input type="text" placeholder="Search for item">
+                    <button class="header__search-button"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="header__right">
+            <a href="cart.html">
+                <img src="img/kart.png" alt="order">
+                <div class="header__right-qty">2</div>
+            </a>
+            <a href="checkout.html">My Account <i class="fas fa-caret-down"></i></a>
+        </div>
+    </div>
+    <div class="header_line"></div>
+    <div class="topNav">
+        <a href="product.html">Home</a>
+        <a href="product.html">Man</a>
+        <a href="product.html">Women</a>
+        <a href="product.html">Kids</a>
+        <a href="product.html">Accessories</a>
+        <a href="product.html">Featured</a>
+        <a href="product.html">Hot Deals </a>
+    </div>
+    <div class="image-frame">
+        <div class="container second-block">
+            <div class="forBorder">
+                <div class="theBrand">The Brand</div>
+                <div class="ofLuxerious">of luxerious <span>fashion</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="container hot-offers">
+       <div class="hot-offers__left">
+            <a class="hot-offers__square">
+                <img src="img/Layer%2030.jpg" alt="">
+                <div class="hot-offers__text">
+                    <div class="hot-offers__upper-text">
+                        hot deal
+                    </div>
+                    <div class="hot-offers__under-text">
+                        for men
+                    </div>
+                </div>
+            </a>
+            <a class="hot-offers__square">
+                <img src="img/Layer%2037.jpg" alt="">
+                <div class="hot-offers__text">
+                    <div class="hot-offers__upper-text">
+                        luxirous &amp; trendy
+                    </div>
+                    <div class="hot-offers__under-text">
+                        accesories
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="hot-offers__right">
+            <a class="hot-offers__square">
+                <img src="img/Layer%2032.jpg" alt="">
+                <div class="hot-offers__text">
+                    <div class="hot-offers__upper-text">
+                        30% offer
+                    </div>
+                    <div class="hot-offers__under-text">
+                        women
+                    </div>
+                </div>
+            </a>
+            <a class="hot-offers__square">
+                <img src="img/Layer%2031.jpg" alt="">
+                <div class="hot-offers__text">
+                    <div class="hot-offers__upper-text">
+                        new arrivals
+                    </div>
+                    <div class="hot-offers__under-text">
+                        for kids
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+<!---------------------------------------------------------- featured-items ----------------------------------------------------------->
+
+    <div class="container featured-items" id="featured-items">
+        <div class="featured-items__title" id="featured-items__title">
+            <h2>Featured Items</h2>
+            <h4>Shop for items based on what we featured in this week</h4>
+        </div>
+        <div class="featured-items__undertitle">
+            <a href="#">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+        
+    </div>  
+    
+    <!--------------------------------------------End of div.featured-items------------------------------------------------------->
+
+    <div class="container offer-women">
+       <div class="offer-women__dicount">
+           <h2>30% <span>offer</span></h2>
+           <h3>for women</h3>
+       </div>
+        <div class="offer-women__bonus">
+            <div class="offer-women__pic"><img src="img/car.png" alt=""></div>
+            <div class="offer-women__text">
+                <h3>Free Delivery</h3>
+                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+            </div>
+        </div>
+        <div class="offer-women__bonus">
+            <div class="offer-women__pic"><img src="img/proc.png" alt=""></div>
+            <div class="offer-women__text">
+                <h3>Sales &amp; discounts</h3>
+                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+            </div>
+        </div>
+        <div class="offer-women__bonus">
+            <div class="offer-women__pic"><img src="img/corona.png" alt=""></div>
+            <div class="offer-women__text">
+                <h3>Quality assurance</h3>
+                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+            </div>
+        </div>
+    </div><!-- End of .offer-women -->
+    <div class="subscibe"><div class="subscibe-shadow">
+       <div class="container subscibe_wrapper">
+        <div class="subscribe-left">
+            <img src="img/subsribe-face.png" alt="face">
+            <div>
+               <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, 
+a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
+               <h4>Bin Burhan</h4>
+               <p>Dhaka, Bd</p>
+               <div class="subscribe-pagination">
+                   <a href="#"></a>
+                   <a href="#"></a>
+                   <a href="#"></a>
+               </div>
+            </div>
+        </div>
+        <div class="subscribe-border"></div>
+        <div class="subscribe-right">
+            <h3>subscribe</h3>
+            <h4>for our newletter and promotion</h4>
+            <form action="">
+                <input type="text" placeholder="Enter your Email">
+                <button>Subscribe</button>
+            </form>
+        </div>
+       </div> <!-- End of .subscibe_wrapper -->
+    </div></div> <!-- End of .subscibe -->
+    <div class="container footer-menu">
+        <div class="footer-menu__left">
+            <a class="header__logo" href="index.html">
+                <img src="img/logo.png" alt="logo">bran <span>d</span>
+            </a>
+            <p>
+                Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships.
+            </p>
+            <p>
+                Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.
+            </p>
+
+        </div>
+        <div class="footer-menu__right">
+            <div class="footer-menu__right-item">
+                <h3>company</h3>
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">How It Works</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-menu__right-item">
+                <h3>information</h3>
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Polocy</a>
+                <a href="#">How to Buy</a>
+                <a href="#">How to Sell</a>
+                <a href="#">Promotion</a>
+            </div>
+            <div class="footer-menu__right-item">
+                <h3>shop category</h3>
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Child</a>
+                <a href="#">Apparel</a>
+                <a href="#">Browse All</a>
+            </div>
+        </div>  <!-- End of footer-menu__right -->
+    </div> <!-- End of footer-menu -->
+    <div class="footer">
+        <div class="container footer_center">
+            <div>
+                &copy; 2017  Brand  All Rights Reserved.
+            </div>
+            <div>
+                <a href="#" class="footer__social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="footer__social"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="footer__social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="footer__social"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" class="footer__social"><i class="fab fa-google-plus-g"></i></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('featured-items__title').insertAdjacentHTML('afterend', createFeaturedItem(items));
+    </script>    
+</body>
+</html>
