@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="num1">
+        <h2>UNIT 1 ( 0 - 100 ) - launch in console num1()</h2>
+        <script>
+            function num1() {       
+                let i = 2;
+                let arr = [];
+                while (i <= 100) {
+                    if ((i % 2) && (i % 3) && (i % 5) && (i % 7) || (i == 2) || (i == 3) || (i == 5) || (i == 7)) {
+                        arr.push(i);
+                    }
+                    i++;
+                }
+                console.log(arr);
+            }
+        </script>
+    </div>
+    <div class="num2">
+        <h2>Bulls and Cows - launch in console num2()</h2>
+        <script>
+            function num2() {
+                console.log("You have just 10 steps.");
+                let pc = startGame();
+                console.log(`Копьютер загадал число: ${pc}. (Подсказка чтобы Вам было легче проверить)`);
+                let i = 0;
+                while(i < 10) {
+                    let reply = prompt("Назови 4-х значное число").split('');
+                    console.log(compare(pc, reply));
+                    if (compare(pc, reply) == "You win!") {
+                        i=10;
+                    }
+                    ++i;
+                }
+            }
+            function startGame() {
+                let numb = Math.floor(Math.random()*10000); 
+                numb = String(numb).split(''); if (numb.length == 3) { numb.push("0"); }
+                return numb;
+                
+            }
+            function compare(pc, human) {
+                let result=[];
+                pc.forEach(function(element, index) {
+                    human.forEach(function(element2, index2) {
+                        if (element == element2 && index == index2) {
+                            result.push(`bull ${element} is ${index}`);
+                        }else if (element == element2) {
+                            result.push(`cow ${element} is ${index}`);
+                        }
+                    });
+                });
+                let k = 0;
+                result.forEach(item => {
+                    if (item.indexOf("bull", 0) != -1) {
+                        ++k;
+                    }
+                    if (k == 4) {
+                        result = "You win!" 
+                    }
+                });
+                return result;
+            }
+        </script>
+    </div>
+    <div class="num3">
+        <h2>for () - launch in console num3()</h2>
+        <script>
+            function num3() {
+                for(let i = 0; i < 10; console.log(i), i++) {}
+            }
+        </script>
+    </div>
+    <div class="num4">
+        <h2>pyramid - launch in console num4()</h2>
+        <script>
+            function num4() {
+                for (let i = 1, k = ""; i < 20; i++) {
+                    k += "*";
+                    console.log (k);
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

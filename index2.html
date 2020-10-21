@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home work #2</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        body, button {
+            margin: 0 auto;
+            font-size: 32px;
+            font-family: sans-serif;
+            
+        }
+        .start {
+            color: #ffffff;
+            margin-top: 2rem;
+            width: 50rem;
+            height: 5rem;
+            background-color: blue;
+            display: grid;
+            outline: none;
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,1);
+            transition-duration: 0.5s;
+        }
+        .start:hover {
+            cursor: pointer;
+            color:yellow;
+            transform: scale(1.1);
+        }
+        .start:active {
+            transform: scale(0.9);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .start p {
+            line-height: 5rem;
+        }
+        .play {
+            color: #ffffff;
+            display: none;
+            width: 100%;
+            height: 20rsem;
+            margin-top: 5rem;
+
+        }
+        #checking {
+            position: relative;
+            left: -2000px;
+        }
+        #checking:checked ~ div.play {
+            display: block;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
+        }
+        .play > .buttons > button {
+            color: #ffffff;
+            border: none;
+            outline: none;
+            width: 18rem;
+            height: 18rem;
+            background-color:darkblue;
+            text-align: center;
+            line-height: 18rem;
+            border-radius: 50%;
+            transition-duration: 0.5s;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(0,0,0,1);
+            box-sizing: border-box;
+        }
+        .play > .buttons > button:hover {
+            cursor: pointer;
+            transform: rotateZ(360deg) scale(1.1);
+            color: yellow;
+        }
+        .play > .buttons > button:active {
+            transform: scale(.9);
+            font-size: 3rem;
+            background-color: blue;
+        }
+        .number4 {
+            display: grid;
+
+        }
+        input[type="number"], input[type="button"], input[type="text"]  {
+            margin: 1rem auto;
+            font-size: 32px;
+            width: fit-content;
+        }
+        #outPut {
+            margin-top: 4rem;
+            display: grid;
+            width: fit-content;
+            color: darkblue;
+            font-size: 4rem;
+        }
+        hr {
+            margin: 2rem auto;
+        }
+        #num82 {
+            position: relative;
+            top: -20px;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <label for="checking">
+        <div class="start">
+            <p>Сыграй в "Камень Ножницы Бумага"</p>
+        </div>
+    </label>
+    <input type="checkbox" id="checking">
+    <div class="play">
+        <div class="buttons">
+            <button onclick="outPut(1)" >Камень</button>
+            <button onclick="outPut(2)">Ножницы</button>
+            <button onclick="outPut(3)">Бумага</button>
+        </div>
+        <div id="outPut"></div>
+    </div>
+    <hr>
+    <div class="number4">
+        <h2>Задание 4</h2>        
+        <label for="number4">Сюда число от 0 до 15 пожалуйста</label><input type='number' min="0" max="15" id="number4">
+        <input type="button" value="вывести от выбранного числа до 15" onclick="func4(+document.getElementById('number4').value)">
+        <p id="outPut4"></p>
+    </div>
+    <hr>
+    <div class="number5">
+        <h2>Задание 5</h2>        
+        <input type="number" id="num51">
+        <input type="number" id="num52">
+        <input type="text" id="znak" placeholder="знак здесь">
+        <input type="button" value="Вычислить" onclick="outPut5(+document.getElementById('num51').value, +document.getElementById('num52').value, document.getElementById('znak').value)">
+        <p id="outPut5"></p>
+    </div>
+    <hr>
+    <div class="namber8">
+        <h2>Задание 8</h2>
+        <input type="number" name="" id="num81">
+        <sup><input type="number" id="num82"></sup>
+        <input type="button" onclick="outPut8(+document.getElementById('num81').value, +document.getElementById('num82').value)" value="Вычислить">
+        <p id="outPut8"></p>
+    </div>
+    <hr>
+
+
+
+
+    <script>
+        
+        function choice(c) {
+            let spy = spyNet();
+            switch(c) {
+                case 1: {
+                    if (spy === 1) {
+                        return "Ничья! У него тоже Камень!"
+                    }
+                    else if (spy === 2) {
+                        return "Победа! У него Ножницы!"
+                    }
+                    else {
+                        return "Упс... У него Бумага!"
+                    }
+                    break
+                }
+                case 2: {
+                    if (spy === 1) {
+                        return "Упс... У него Камень!"
+                    }
+                    else if (spy === 2) {
+                        return "Ничья! У него тоже Ножницы!"
+                    }
+                    else {
+                        return "Победа! У него Бумага!"
+                    }
+                    break
+                }
+                case 3: {
+                    if (spy === 1) {
+                        return "Победа! У него Камень!"
+                    }
+                    else if (spy === 2) {
+                        return "Упс... У него Ножницы!"
+                    }
+                    else {
+                        return "Ничья! У него тоже Бумага!"
+                    }
+                    break
+                }
+            }
+                
+        }
+        function spyNet(){
+            let spyNet = null;
+            spyNet = Math.floor((Math.random()*3)) + 1;
+            return spyNet;
+        }
+        function outPut(c) {
+            let ourDiv = document.getElementById("outPut");
+            ourDiv.innerHTML = choice(c);
+}
+        function func4(a) {
+            switch (true) {
+                case (a <= 15 && a >= 0): {
+                    document.getElementById('outPut4').innerHTML += a + " ";
+                    func4(a+1);
+                }
+            }
+        }
+        function add(a, b) {
+            return (a+b);
+        }
+        function minus(a, b) {
+            return (a-b);
+        }
+        function mult(a, b) {
+            return a*b;
+        }
+        function devide(a, b) {
+            return a/b;
+        }
+        function outPut5(n1, n2, znak) {
+            switch (znak) {
+                case "+": {
+                    document.getElementById('outPut5').innerHTML = add(n1, n2);
+                    break;
+                }
+                case "-": {
+                    document.getElementById('outPut5').innerHTML = minus(n1, n2);
+                    break;
+                }
+                case "*": {
+                    document.getElementById('outPut5').innerHTML = mult(n1, n2);
+                    break;
+                }
+                case "/": {
+                    document.getElementById('outPut5').innerHTML = devide(n1, n2);
+                    break;
+                }
+                default: {
+                    document.getElementById('outPut5').innerHTML = "введите одно из: + , - , * , /";
+                    break;
+                }
+            }
+
+        }
+        function outPut8(a, b){
+            document.getElementById("outPut8").innerHTML = pow(a, b);
+        }
+        function pow(a, b) {
+            let res = 1;
+            if (b == 1) {
+                return a;
+            }
+            else {
+                return a * pow(a, b-1);
+            }
+        }
+    </script>
+</body>
+</html>
